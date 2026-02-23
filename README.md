@@ -1,7 +1,9 @@
 # 🤖 SARVIS — AIoT 기반 지능형 사용자 인식 모니터암
+>
 > ⚠️ SSAFY 교육 정책에 따라 소스코드는 비공개입니다.
 
 ## 📌 프로젝트 개요
+
 - **SARVIS**는 얼굴/음성 기반 사용자 인식과 로봇암 제어를 결합한 **AIoT 퍼스널 모니터암** 프로젝트입니다.
 - 모바일 앱에서 사용자 인증 및 제어를 수행하고, Jetson Edge AI가 비전/음성 파이프라인을 처리하며, 백엔드가 세션/명령/계정 상태를 통합 관리합니다.
 - **SSAFY 14기 2학기 메인 프로젝트**
@@ -9,6 +11,7 @@
 - **팀 구성:** 6인
 
 ## 🎯 담당 역할
+
 - FrontEnd 개발자로 시작해, 스프린트 중반부터 PM 역할로 자발적 전환
 - FE/BE 양쪽 코드베이스 및 통신 구조 문서화에 기여
 - 팀 브랜치 통합 및 릴리즈 머지 주도
@@ -19,6 +22,7 @@
   - 변경 로그 기준 주요 기여 경로: `SARVIS_app`, `app_UI`, `FRONTEND`, `김대연`(기획/명세)
 
 ## 🛠️ 기술 스택
+
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -40,6 +44,7 @@
 ![Jetson Nano](https://img.shields.io/badge/NVIDIA_Jetson-76B900?style=for-the-badge&logo=nvidia&logoColor=white)
 
 ## 🏗️ 시스템 아키텍처
+
 ```mermaid
 flowchart LR
   subgraph Mobile["Mobile App (React Native/Expo)"]
@@ -50,8 +55,8 @@ flowchart LR
 
   subgraph Backend["EC2 Backend (Django + Channels)"]
     B1[REST API]
-    B2[WS: /ws/app/{session_id}/]
-    B3[Session & Command Log]
+    B2["WS: /ws/app/session_id/"]
+    B3["Session & Command Log"]
     B4[(MySQL)]
     B5[(Redis/Cache)]
   end
@@ -89,6 +94,7 @@ flowchart LR
 ```
 
 ## ⭐ 주요 기능
+
 | 기능 | 설명 |
 |------|------|
 | 다단계 회원가입 + 이메일 인증 | ID/닉네임/이메일/비밀번호 단계 검증 및 이메일 코드 인증 |
@@ -101,6 +107,7 @@ flowchart LR
 | 기기 연결 온보딩 | `SARVIS_WIFI` 및 BLE 기반 연결 절차 안내/검증 |
 
 ## 📁 프로젝트 구조
+
 ```text
 S14P11A104
 ├── SARVIS_app/sarvis          # 모바일 앱 (React Native + Expo)
@@ -122,6 +129,7 @@ S14P11A104
 ```
 
 ## 💡 핵심 경험 & 성장
+
 - **PM 전환 스토리**  
   스프린트 진행 중 FE/BE/HW 간 통신 규약 불일치로 충돌이 반복되었고, 이를 해결하기 위해 PM 역할로 전환해 상세 명세/API 기준을 통합했습니다.
 
@@ -130,4 +138,3 @@ S14P11A104
 
 ## 📸 스크린샷
 <!-- 추후 추가 예정 -->
-
