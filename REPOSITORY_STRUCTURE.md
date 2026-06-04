@@ -1,351 +1,433 @@
-﻿# SARVIS 비공개 원본 구조
+# SARVIS Repository Structure
 
-SSAFY 정책상 public repo에는 내부 코드 대신 원본 private tree의 파일명만 남깁니다.
+이 문서는 공개용 저장소에서 원본 소스의 폴더명과 파일명만 확인할 수 있도록 만든 구조 인벤토리입니다.
+내부 구현, 설정값, 비공개 데이터, 실행 가능한 소스 내용은 공개하지 않기 위해 의도적으로 비워두었습니다.
 
-## 파일명 목록
+## 생성 기준
+
+- 원본 기준: SSAFY 원본 저장소의 Git tracked files
+- 생성 시각: 2026-06-04 17:39:34 +09:00
+- 원본 Git tracked file 수: 343
+- 공개 repo의 각 skeleton 파일은 파일명을 보존하기 위한 0바이트 placeholder입니다.
+- 루트 `README.md`와 이 문서는 공개 설명을 위해 내용을 유지합니다.
+
+## 전체 구조
 
 ```text
-.gitignore
-.vscode/settings.json
-BACKEND/djangopjt/.env.example
-BACKEND/djangopjt/.gitignore
-BACKEND/djangopjt/accounts/__init__.py
-BACKEND/djangopjt/accounts/admin.py
-BACKEND/djangopjt/accounts/app_consumer.py
-BACKEND/djangopjt/accounts/apps.py
-BACKEND/djangopjt/accounts/auth_utils.py
-BACKEND/djangopjt/accounts/consumers.py
-BACKEND/djangopjt/accounts/decorators.py
-BACKEND/djangopjt/accounts/management/__init__.py
-BACKEND/djangopjt/accounts/management/commands/__init__.py
-BACKEND/djangopjt/accounts/migrations/0001_initial.py
-BACKEND/djangopjt/accounts/migrations/__init__.py
-BACKEND/djangopjt/accounts/models.py
-BACKEND/djangopjt/accounts/robot_arm.py
-BACKEND/djangopjt/accounts/routing.py
-BACKEND/djangopjt/accounts/serializers.py
-BACKEND/djangopjt/accounts/tasks.py
-BACKEND/djangopjt/accounts/tests.py
-BACKEND/djangopjt/accounts/urls.py
-BACKEND/djangopjt/accounts/views.py
-BACKEND/djangopjt/accounts/websocket_logger.py
-BACKEND/djangopjt/gms_proxy/.gitignore
-BACKEND/djangopjt/gms_proxy/app.py
-BACKEND/djangopjt/manage.py
-BACKEND/djangopjt/requirements.txt
-BACKEND/djangopjt/server/__init__.py
-BACKEND/djangopjt/server/asgi.py
-BACKEND/djangopjt/server/celery.py
-BACKEND/djangopjt/server/consumers.py
-BACKEND/djangopjt/server/routing.py
-BACKEND/djangopjt/server/settings.py
-BACKEND/djangopjt/server/urls.py
-BACKEND/djangopjt/server/wsgi.py
-JINWOO/OMX-AI(Follower).stp
-JINWOO/README26.01.12.md
-JINWOO/README26.01.13 .md
-JINWOO/README26.01.14
-JINWOO/README26.01.15.md
-JINWOO/arm/maxrec.py
-JINWOO/arm/mk4.py
-JINWOO/arm/mk5.py
-JINWOO/arm/prototype.py
-JINWOO/arm/rectangle_ver1.py
-JINWOO/arm/sample.y
-JINWOO/arm/samplecode.py
-JINWOO/arm/sixmotor.py
-JINWOO/arm/testarm.py
-JINWOO/arm/testrec.py
-JINWOO/arm/v2proto.py
-JINWOO/arm/yzrectangle.py
-JINWOO/moniterdev/READNE0121.md
-JINWOO/moniterdev/phone.py
-Jetson/.gitignore
-Jetson/constraints.txt
-Jetson/requirements.txt
-Jetson/scripts/install_jetson_env.sh
-Jetson/vision_test/.gitignore
-Jetson/vision_test/api_client.py
-Jetson/vision_test/app_image_embedding.py
-Jetson/vision_test/app_image_embedding_ko.py
-Jetson/vision_test/connect_to_pi_v1.py
-Jetson/vision_test/create_ap
-Jetson/vision_test/directconnecttest.py
-Jetson/vision_test/faceTracker.py
-Jetson/vision_test/main.py
-Jetson/vision_test/rpi_connect.py
-Jetson/vision_test/rpi_connect2.py
-Jetson/vision_test/rpi_connect_any.py
-Jetson/vision_test/rpi_connect_nf.py
-Jetson/vision_test/services.py
-Jetson/vision_test/test/app_connect_test.py
-Jetson/vision_test/test/direction_test.py
-Jetson/vision_test/test/embedding_compare.py
-Jetson/vision_test/test/embedding_test.py
-Jetson/vision_test/test/onnxruntime_gpu-1.17.0-cp310-cp310-linux_aarch64.whl
-Jetson/vision_test/test/onnxruntime_gpu.py
-Jetson/vision_test/test/recognition.py
-Jetson/vision_test/test/register_face.py
-Jetson/vision_test/test/take_photo_webcam.py
-Jetson/vision_test/test/test.py
-Jetson/vision_test/test/test_insightface.py
-Jetson/vision_test/track_login.py
-Jetson/vision_test/vision.py
-Jetson/vision_test/zev.py
-Jetson/voice_test/.gitignore
-Jetson/voice_test/README.md
-Jetson/voice_test/apps/vad_record_threaded.py
-Jetson/voice_test/config.py
-Jetson/voice_test/config_tuned.py
-Jetson/voice_test/enroll/enroll_to_server_test.py
-Jetson/voice_test/kws/__init__.py
-Jetson/voice_test/kws/log_mel.py
-Jetson/voice_test/kws/train_dscnn.py
-Jetson/voice_test/pipeline/__init__.py
-Jetson/voice_test/pipeline/command_classifier.py
-Jetson/voice_test/pipeline/kws_wake.py
-Jetson/voice_test/pipeline/router.py
-Jetson/voice_test/pipeline/speaker_verify.py
-Jetson/voice_test/pipeline/state_machine.py
-Jetson/voice_test/pipeline/stt_llm.py
-Jetson/voice_test/stt_out.json
-Jetson/voice_test/sv_report.json
-Jetson/voice_test/test/rms_meter.py
-Jetson/voice_test/tools/Training_Guide.md
-Jetson/voice_test/tools/compare_models.py
-Jetson/voice_test/tools/complete_pipeline.sh
-Jetson/voice_test/tools/convert_wespeaker_to_onnx.py
-Jetson/voice_test/tools/debug_voice_pipeline.py
-Jetson/voice_test/tools/make_val_from_train.py
-Jetson/voice_test/tools/record_long.py
-Jetson/voice_test/tools/safe_data_pipeline.py
-Jetson/voice_test/tools/silence_split.py
-Jetson/voice_test/tools/split_unknown_silence.py
-Jetson/voice_test/tools/train_kws_improved.py
-Jetson/voice_test/tools/vad_crop_to_train.py
-Jetson/voice_test/tools/validate_wake_word.py
-Jetson/voice_test/voice_api_server.py
-Jetson/voice_test/voice_enroll_server.py
-README.md
-SARVIS_app.zip
-SARVIS_app/FOREGROUND_SERVICE_GUIDE.md
-SARVIS_app/sarvis/.easignore
-SARVIS_app/sarvis/.gitignore
-SARVIS_app/sarvis/.vscode/extensions.json
-SARVIS_app/sarvis/.vscode/settings.json
-SARVIS_app/sarvis/api/auth.ts
-SARVIS_app/sarvis/api/biometric.ts
-SARVIS_app/sarvis/api/client.ts
-SARVIS_app/sarvis/api/control.ts
-SARVIS_app/sarvis/api/preset.ts
-SARVIS_app/sarvis/api/robot.ts
-SARVIS_app/sarvis/api/session.ts
-SARVIS_app/sarvis/api/types.ts
-SARVIS_app/sarvis/api/websocket.ts
-SARVIS_app/sarvis/app.json
-SARVIS_app/sarvis/app.zip
-SARVIS_app/sarvis/app/(auth)/_layout.tsx
-SARVIS_app/sarvis/app/(auth)/face-capture.tsx
-SARVIS_app/sarvis/app/(auth)/face-reregister.tsx
-SARVIS_app/sarvis/app/(auth)/find-id.tsx
-SARVIS_app/sarvis/app/(auth)/find-password.tsx
-SARVIS_app/sarvis/app/(auth)/login-face.tsx
-SARVIS_app/sarvis/app/(auth)/login-id.tsx
-SARVIS_app/sarvis/app/(auth)/login.tsx
-SARVIS_app/sarvis/app/(auth)/preset-selection.tsx
-SARVIS_app/sarvis/app/(auth)/signup-info.tsx
-SARVIS_app/sarvis/app/(auth)/signup.tsx
-SARVIS_app/sarvis/app/(auth)/voice-register.tsx
-SARVIS_app/sarvis/app/(auth)/voice-reregister.tsx
-SARVIS_app/sarvis/app/(tabs)/_layout.tsx
-SARVIS_app/sarvis/app/(tabs)/explore.tsx
-SARVIS_app/sarvis/app/(tabs)/index.tsx
-SARVIS_app/sarvis/app/(tabs)/preset-manage.tsx
-SARVIS_app/sarvis/app/(tabs)/preset-select.tsx
-SARVIS_app/sarvis/app/(tabs)/profile.tsx
-SARVIS_app/sarvis/app/(tabs)/settings.tsx
-SARVIS_app/sarvis/app/_layout.tsx
-SARVIS_app/sarvis/app/device-info.tsx
-SARVIS_app/sarvis/app/index.tsx
-SARVIS_app/sarvis/app/privacy.tsx
-SARVIS_app/sarvis/app/terms.tsx
-SARVIS_app/sarvis/assets/images/android-icon-background.png
-SARVIS_app/sarvis/assets/images/android-icon-foreground.png
-SARVIS_app/sarvis/assets/images/android-icon-monochrome.png
-SARVIS_app/sarvis/assets/images/favicon.png
-SARVIS_app/sarvis/assets/images/icon.png
-SARVIS_app/sarvis/assets/images/partial-react-logo.png
-SARVIS_app/sarvis/assets/images/react-logo.png
-SARVIS_app/sarvis/assets/images/react-logo@2x.png
-SARVIS_app/sarvis/assets/images/react-logo@3x.png
-SARVIS_app/sarvis/assets/images/splash-icon.png
-SARVIS_app/sarvis/assets/sounds/dding.mp3
-SARVIS_app/sarvis/clear-auth.js
-SARVIS_app/sarvis/com.facebook.react.devsupport.BundleDownloader
-SARVIS_app/sarvis/com.facebook.react.devsupport.BundleDownloader$processMultipartResponse$completed$1
-SARVIS_app/sarvis/components/biometric/FaceCapture.tsx
-SARVIS_app/sarvis/components/sarvis/connectivity-overlay.tsx
-SARVIS_app/sarvis/components/sarvis/sarvis-app-header.tsx
-SARVIS_app/sarvis/components/sarvis/sarvis-button.tsx
-SARVIS_app/sarvis/components/sarvis/sarvis-footer.tsx
-SARVIS_app/sarvis/components/sarvis/sarvis-logo.tsx
-SARVIS_app/sarvis/components/sarvis/sarvis-menu-modal.tsx
-SARVIS_app/sarvis/components/sarvis/sarvis-screen.tsx
-SARVIS_app/sarvis/components/sarvis/sarvis-slider.tsx
-SARVIS_app/sarvis/components/sarvis/voice-command-overlay.tsx
-SARVIS_app/sarvis/components/youtube/youtube-controller.tsx
-SARVIS_app/sarvis/constants/config.ts
-SARVIS_app/sarvis/constants/sarvis-theme.ts
-SARVIS_app/sarvis/eas.json
-SARVIS_app/sarvis/eslint.config.js
-SARVIS_app/sarvis/force_update.tmp
-SARVIS_app/sarvis/modules/YouTubeControlModule.js
-SARVIS_app/sarvis/modules/YouTubeHandsfreeControl.js
-SARVIS_app/sarvis/package-lock.json
-SARVIS_app/sarvis/package.json
-SARVIS_app/sarvis/providers/auth-provider.tsx
-SARVIS_app/sarvis/providers/connectivity-provider.tsx
-SARVIS_app/sarvis/services/ForegroundService.ts
-SARVIS_app/sarvis/test-preset-storage.js
-SARVIS_app/sarvis/tsconfig.json
-SARVIS_app/sarvis/utils/Permissions.ts
-SARVIS_app/sarvis/utils/presetStorage.ts
-SARVIS_app/sarvis/utils/userStorage.ts
-SARVIS_app/sarvis/utils/voiceCommandHandler.ts
-SARVIS_app/sarvis_mock.css
-SARVIS_app/sarvis_mock.html
-SARVIS_app/sarvis_mock.js
-SARVIS_app/websocket_guide.md
-SARVIS_app/websocket_integration_guide.md
-convention.md
-exec/1.PORTING_MANUAL.md
-exec/3.sarvis_dump_latest.sql
-exec/4.presentation_storyboard.md
-presentation_ppt.pdf
-김대연/readme_0112.md
-김대연/readme_0113.md
-김대연/readme_0114.md
-김대연/readme_0115.md
-김대연/readme_0116.md
-김대연/work/.gitignore
-김대연/work/BACKEND/djangopjt/.gitignore
-김대연/work/BACKEND/djangopjt/accounts/__init__.py
-김대연/work/BACKEND/djangopjt/accounts/admin.py
-김대연/work/BACKEND/djangopjt/accounts/apps.py
-김대연/work/BACKEND/djangopjt/accounts/auth_utils.py
-김대연/work/BACKEND/djangopjt/accounts/decorators.py
-김대연/work/BACKEND/djangopjt/accounts/migrations/0001_initial.py
-김대연/work/BACKEND/djangopjt/accounts/migrations/__init__.py
-김대연/work/BACKEND/djangopjt/accounts/models.py
-김대연/work/BACKEND/djangopjt/accounts/serializers.py
-김대연/work/BACKEND/djangopjt/accounts/tests.py
-김대연/work/BACKEND/djangopjt/accounts/urls.py
-김대연/work/BACKEND/djangopjt/accounts/views.py
-김대연/work/BACKEND/djangopjt/manage.py
-김대연/work/BACKEND/djangopjt/requirements.txt
-김대연/work/BACKEND/djangopjt/server/__init__.py
-김대연/work/BACKEND/djangopjt/server/asgi.py
-김대연/work/BACKEND/djangopjt/server/settings.py
-김대연/work/BACKEND/djangopjt/server/urls.py
-김대연/work/BACKEND/djangopjt/server/wsgi.py
-김대연/work/BACKEND/jetson_requirements.txt
-김대연/work/BACKEND/jetson_test_server.py
-김대연/work/BACKEND/package-lock.json
-김대연/work/FACE_UPLOAD_TEST_GUIDE.md
-김대연/work/FRONTEND/sarvis/.gitignore
-김대연/work/FRONTEND/sarvis/.vscode/extensions.json
-김대연/work/FRONTEND/sarvis/.vscode/settings.json
-김대연/work/FRONTEND/sarvis/README.md
-김대연/work/FRONTEND/sarvis/app.json
-김대연/work/FRONTEND/sarvis/app/(auth)/_layout.tsx
-김대연/work/FRONTEND/sarvis/app/(auth)/login-face.tsx
-김대연/work/FRONTEND/sarvis/app/(auth)/login-id.tsx
-김대연/work/FRONTEND/sarvis/app/(auth)/login.tsx
-김대연/work/FRONTEND/sarvis/app/(auth)/signup-device.tsx
-김대연/work/FRONTEND/sarvis/app/(auth)/signup-face.tsx
-김대연/work/FRONTEND/sarvis/app/(auth)/signup-info.tsx
-김대연/work/FRONTEND/sarvis/app/(auth)/signup-voice.tsx
-김대연/work/FRONTEND/sarvis/app/(auth)/signup.tsx
-김대연/work/FRONTEND/sarvis/app/(tabs)/_layout.tsx
-김대연/work/FRONTEND/sarvis/app/(tabs)/explore.tsx
-김대연/work/FRONTEND/sarvis/app/(tabs)/index.tsx
-김대연/work/FRONTEND/sarvis/app/(tabs)/softap-test.tsx
-김대연/work/FRONTEND/sarvis/app/_layout.tsx
-김대연/work/FRONTEND/sarvis/app/device-info.tsx
-김대연/work/FRONTEND/sarvis/app/index.tsx
-김대연/work/FRONTEND/sarvis/app/modal.tsx
-김대연/work/FRONTEND/sarvis/assets/images/android-icon-background.png
-김대연/work/FRONTEND/sarvis/assets/images/android-icon-foreground.png
-김대연/work/FRONTEND/sarvis/assets/images/android-icon-monochrome.png
-김대연/work/FRONTEND/sarvis/assets/images/favicon.png
-김대연/work/FRONTEND/sarvis/assets/images/icon.png
-김대연/work/FRONTEND/sarvis/assets/images/partial-react-logo.png
-김대연/work/FRONTEND/sarvis/assets/images/react-logo.png
-김대연/work/FRONTEND/sarvis/assets/images/react-logo@2x.png
-김대연/work/FRONTEND/sarvis/assets/images/react-logo@3x.png
-김대연/work/FRONTEND/sarvis/assets/images/splash-icon.png
-김대연/work/FRONTEND/sarvis/components/sarvis/sarvis-app-header.tsx
-김대연/work/FRONTEND/sarvis/components/sarvis/sarvis-button.tsx
-김대연/work/FRONTEND/sarvis/components/sarvis/sarvis-footer.tsx
-김대연/work/FRONTEND/sarvis/components/sarvis/sarvis-logo.tsx
-김대연/work/FRONTEND/sarvis/components/sarvis/sarvis-screen.tsx
-김대연/work/FRONTEND/sarvis/components/sarvis/sarvis-slider.tsx
-김대연/work/FRONTEND/sarvis/constants/sarvis-theme.ts
-김대연/work/FRONTEND/sarvis/eslint.config.js
-김대연/work/FRONTEND/sarvis/package-lock.json
-김대연/work/FRONTEND/sarvis/package.json
-김대연/work/FRONTEND/sarvis/providers/auth-provider.tsx
-김대연/work/FRONTEND/sarvis/tsconfig.json
-김대연/work/FRONTEND/sarvis/utils/api.ts
-김대연/work/FRONTEND/sarvis/utils/softap-communication.ts
-김대연/work/FRONTEND/sarvis_mock.css
-김대연/work/FRONTEND/sarvis_mock.html
-김대연/work/FRONTEND/sarvis_mock.js
-김대연/work/JETSON_SOFTAP_SETUP.md
-김대연/work/LOGIN_FACE_TEST_GUIDE_KR.md
-김대연/work/NETWORK_TROUBLESHOOTING.md
-김대연/work/SIGNUP_GUIDE.md
-김대연/work/SOFTAP_TEST_GUIDE.md
-김대연/work/SOFTAP_TEST_GUIDE_KR.md
-김대연/work/Use_case_revised.md
-김대연/work/api명세서.md
-김대연/work/requirements.txt
-김대연/work/server_test.py
-김대연/work/test_face_upload.js
-김대연/work/wireframe_architecture.md
-김대연/work/기능별_상세_명세.md
-이주선/20260112.md
-이주선/20260113.md
-이주선/20260114.md
-이주선/20260115.md
-이주선/20260116.md
-이주선/20260127.md
-이주선/20260128.md
-이주선/20260129.md
-이주선/UIUX초안/SARVIS_JOOSUN(3).html
-이주선/UIUX초안/sarvis.html
-이주선/UIUX초안/sarvis_mock.html
-이주선/image.png
-이주선/아래판.png
-정다진/README_260112.md
-정다진/README_260113.md
-정다진/README_260114.md
-정다진/README_260115.md
-정다진/README_260116.md
-정다진/images/erd.png
-정다진/images/new system architecture.png
-정다진/images/system architecture.png
-정서영/README0112.md
-정서영/README0113.md
-정서영/README0114.md
-정서영/README0115.md
-정서영/README0116.md
-정서영/image/erd.png
-제영호/README.md
-제영호/일지/260112.md
-제영호/일지/260113.md
-제영호/일지/260114.md
-제영호/일지/260115.md
-제영호/일지/images/diagram.jpg
-제영호/일지/images/시스템아키텍처.png
+.
++-- .gitignore
++-- .vscode
+|   \-- settings.json
++-- BACKEND
+|   \-- djangopjt
+|       +-- .env.example
+|       +-- .gitignore
+|       +-- accounts
+|       |   +-- __init__.py
+|       |   +-- admin.py
+|       |   +-- app_consumer.py
+|       |   +-- apps.py
+|       |   +-- auth_utils.py
+|       |   +-- consumers.py
+|       |   +-- decorators.py
+|       |   +-- management
+|       |   |   +-- __init__.py
+|       |   |   \-- commands
+|       |   |       \-- __init__.py
+|       |   +-- migrations
+|       |   |   +-- __init__.py
+|       |   |   \-- 0001_initial.py
+|       |   +-- models.py
+|       |   +-- robot_arm.py
+|       |   +-- routing.py
+|       |   +-- serializers.py
+|       |   +-- tasks.py
+|       |   +-- tests.py
+|       |   +-- urls.py
+|       |   +-- views.py
+|       |   \-- websocket_logger.py
+|       +-- gms_proxy
+|       |   +-- .gitignore
+|       |   \-- app.py
+|       +-- manage.py
+|       +-- requirements.txt
+|       \-- server
+|           +-- __init__.py
+|           +-- asgi.py
+|           +-- celery.py
+|           +-- consumers.py
+|           +-- routing.py
+|           +-- settings.py
+|           +-- urls.py
+|           \-- wsgi.py
++-- convention.md
++-- exec
+|   +-- 1.PORTING_MANUAL.md
+|   +-- 3.sarvis_dump_latest.sql
+|   \-- 4.presentation_storyboard.md
++-- Jetson
+|   +-- .gitignore
+|   +-- constraints.txt
+|   +-- requirements.txt
+|   +-- scripts
+|   |   \-- install_jetson_env.sh
+|   +-- vision_test
+|   |   +-- .gitignore
+|   |   +-- api_client.py
+|   |   +-- app_image_embedding.py
+|   |   +-- app_image_embedding_ko.py
+|   |   +-- connect_to_pi_v1.py
+|   |   +-- create_ap
+|   |   +-- directconnecttest.py
+|   |   +-- faceTracker.py
+|   |   +-- main.py
+|   |   +-- rpi_connect.py
+|   |   +-- rpi_connect_any.py
+|   |   +-- rpi_connect_nf.py
+|   |   +-- rpi_connect2.py
+|   |   +-- services.py
+|   |   +-- test
+|   |   |   +-- app_connect_test.py
+|   |   |   +-- direction_test.py
+|   |   |   +-- embedding_compare.py
+|   |   |   +-- embedding_test.py
+|   |   |   +-- onnxruntime_gpu.py
+|   |   |   +-- onnxruntime_gpu-1.17.0-cp310-cp310-linux_aarch64.whl
+|   |   |   +-- recognition.py
+|   |   |   +-- register_face.py
+|   |   |   +-- take_photo_webcam.py
+|   |   |   +-- test.py
+|   |   |   \-- test_insightface.py
+|   |   +-- track_login.py
+|   |   +-- vision.py
+|   |   \-- zev.py
+|   \-- voice_test
+|       +-- .gitignore
+|       +-- apps
+|       |   \-- vad_record_threaded.py
+|       +-- config.py
+|       +-- config_tuned.py
+|       +-- enroll
+|       |   \-- enroll_to_server_test.py
+|       +-- kws
+|       |   +-- __init__.py
+|       |   +-- log_mel.py
+|       |   \-- train_dscnn.py
+|       +-- pipeline
+|       |   +-- __init__.py
+|       |   +-- command_classifier.py
+|       |   +-- kws_wake.py
+|       |   +-- router.py
+|       |   +-- speaker_verify.py
+|       |   +-- state_machine.py
+|       |   \-- stt_llm.py
+|       +-- README.md
+|       +-- stt_out.json
+|       +-- sv_report.json
+|       +-- test
+|       |   \-- rms_meter.py
+|       +-- tools
+|       |   +-- compare_models.py
+|       |   +-- complete_pipeline.sh
+|       |   +-- convert_wespeaker_to_onnx.py
+|       |   +-- debug_voice_pipeline.py
+|       |   +-- make_val_from_train.py
+|       |   +-- record_long.py
+|       |   +-- safe_data_pipeline.py
+|       |   +-- silence_split.py
+|       |   +-- split_unknown_silence.py
+|       |   +-- train_kws_improved.py
+|       |   +-- Training_Guide.md
+|       |   +-- vad_crop_to_train.py
+|       |   \-- validate_wake_word.py
+|       +-- voice_api_server.py
+|       \-- voice_enroll_server.py
++-- JINWOO
+|   +-- arm
+|   |   +-- maxrec.py
+|   |   +-- mk4.py
+|   |   +-- mk5.py
+|   |   +-- prototype.py
+|   |   +-- rectangle_ver1.py
+|   |   +-- sample.y
+|   |   +-- samplecode.py
+|   |   +-- sixmotor.py
+|   |   +-- testarm.py
+|   |   +-- testrec.py
+|   |   +-- v2proto.py
+|   |   \-- yzrectangle.py
+|   +-- moniterdev
+|   |   +-- phone.py
+|   |   \-- READNE0121.md
+|   +-- OMX-AI(Follower).stp
+|   +-- README26.01.12.md
+|   +-- README26.01.13 .md
+|   +-- README26.01.14
+|   \-- README26.01.15.md
++-- presentation_ppt.pdf
++-- README.md
++-- SARVIS_app
+|   +-- FOREGROUND_SERVICE_GUIDE.md
+|   +-- sarvis
+|   |   +-- .easignore
+|   |   +-- .gitignore
+|   |   +-- .vscode
+|   |   |   +-- extensions.json
+|   |   |   \-- settings.json
+|   |   +-- api
+|   |   |   +-- auth.ts
+|   |   |   +-- biometric.ts
+|   |   |   +-- client.ts
+|   |   |   +-- control.ts
+|   |   |   +-- preset.ts
+|   |   |   +-- robot.ts
+|   |   |   +-- session.ts
+|   |   |   +-- types.ts
+|   |   |   \-- websocket.ts
+|   |   +-- app
+|   |   |   +-- (auth)
+|   |   |   |   +-- _layout.tsx
+|   |   |   |   +-- face-capture.tsx
+|   |   |   |   +-- face-reregister.tsx
+|   |   |   |   +-- find-id.tsx
+|   |   |   |   +-- find-password.tsx
+|   |   |   |   +-- login.tsx
+|   |   |   |   +-- login-face.tsx
+|   |   |   |   +-- login-id.tsx
+|   |   |   |   +-- preset-selection.tsx
+|   |   |   |   +-- signup.tsx
+|   |   |   |   +-- signup-info.tsx
+|   |   |   |   +-- voice-register.tsx
+|   |   |   |   \-- voice-reregister.tsx
+|   |   |   +-- (tabs)
+|   |   |   |   +-- _layout.tsx
+|   |   |   |   +-- explore.tsx
+|   |   |   |   +-- index.tsx
+|   |   |   |   +-- preset-manage.tsx
+|   |   |   |   +-- preset-select.tsx
+|   |   |   |   +-- profile.tsx
+|   |   |   |   \-- settings.tsx
+|   |   |   +-- _layout.tsx
+|   |   |   +-- device-info.tsx
+|   |   |   +-- index.tsx
+|   |   |   +-- privacy.tsx
+|   |   |   \-- terms.tsx
+|   |   +-- app.json
+|   |   +-- app.zip
+|   |   +-- assets
+|   |   |   +-- images
+|   |   |   |   +-- android-icon-background.png
+|   |   |   |   +-- android-icon-foreground.png
+|   |   |   |   +-- android-icon-monochrome.png
+|   |   |   |   +-- favicon.png
+|   |   |   |   +-- icon.png
+|   |   |   |   +-- partial-react-logo.png
+|   |   |   |   +-- react-logo.png
+|   |   |   |   +-- react-logo@2x.png
+|   |   |   |   +-- react-logo@3x.png
+|   |   |   |   \-- splash-icon.png
+|   |   |   \-- sounds
+|   |   |       \-- dding.mp3
+|   |   +-- clear-auth.js
+|   |   +-- com.facebook.react.devsupport.BundleDownloader
+|   |   +-- com.facebook.react.devsupport.BundleDownloader$processMultipartResponse$completed$1
+|   |   +-- components
+|   |   |   +-- biometric
+|   |   |   |   \-- FaceCapture.tsx
+|   |   |   +-- sarvis
+|   |   |   |   +-- connectivity-overlay.tsx
+|   |   |   |   +-- sarvis-app-header.tsx
+|   |   |   |   +-- sarvis-button.tsx
+|   |   |   |   +-- sarvis-footer.tsx
+|   |   |   |   +-- sarvis-logo.tsx
+|   |   |   |   +-- sarvis-menu-modal.tsx
+|   |   |   |   +-- sarvis-screen.tsx
+|   |   |   |   +-- sarvis-slider.tsx
+|   |   |   |   \-- voice-command-overlay.tsx
+|   |   |   \-- youtube
+|   |   |       \-- youtube-controller.tsx
+|   |   +-- constants
+|   |   |   +-- config.ts
+|   |   |   \-- sarvis-theme.ts
+|   |   +-- eas.json
+|   |   +-- eslint.config.js
+|   |   +-- force_update.tmp
+|   |   +-- modules
+|   |   |   +-- YouTubeControlModule.js
+|   |   |   \-- YouTubeHandsfreeControl.js
+|   |   +-- package.json
+|   |   +-- package-lock.json
+|   |   +-- providers
+|   |   |   +-- auth-provider.tsx
+|   |   |   \-- connectivity-provider.tsx
+|   |   +-- services
+|   |   |   \-- ForegroundService.ts
+|   |   +-- test-preset-storage.js
+|   |   +-- tsconfig.json
+|   |   \-- utils
+|   |       +-- Permissions.ts
+|   |       +-- presetStorage.ts
+|   |       +-- userStorage.ts
+|   |       \-- voiceCommandHandler.ts
+|   +-- sarvis_mock.css
+|   +-- sarvis_mock.html
+|   +-- sarvis_mock.js
+|   +-- websocket_guide.md
+|   \-- websocket_integration_guide.md
++-- SARVIS_app.zip
++-- 김대연
+|   +-- readme_0112.md
+|   +-- readme_0113.md
+|   +-- readme_0114.md
+|   +-- readme_0115.md
+|   +-- readme_0116.md
+|   \-- work
+|       +-- .gitignore
+|       +-- api명세서.md
+|       +-- BACKEND
+|       |   +-- djangopjt
+|       |   |   +-- .gitignore
+|       |   |   +-- accounts
+|       |   |   |   +-- __init__.py
+|       |   |   |   +-- admin.py
+|       |   |   |   +-- apps.py
+|       |   |   |   +-- auth_utils.py
+|       |   |   |   +-- decorators.py
+|       |   |   |   +-- migrations
+|       |   |   |   |   +-- __init__.py
+|       |   |   |   |   \-- 0001_initial.py
+|       |   |   |   +-- models.py
+|       |   |   |   +-- serializers.py
+|       |   |   |   +-- tests.py
+|       |   |   |   +-- urls.py
+|       |   |   |   \-- views.py
+|       |   |   +-- manage.py
+|       |   |   +-- requirements.txt
+|       |   |   \-- server
+|       |   |       +-- __init__.py
+|       |   |       +-- asgi.py
+|       |   |       +-- settings.py
+|       |   |       +-- urls.py
+|       |   |       \-- wsgi.py
+|       |   +-- jetson_requirements.txt
+|       |   +-- jetson_test_server.py
+|       |   \-- package-lock.json
+|       +-- FACE_UPLOAD_TEST_GUIDE.md
+|       +-- FRONTEND
+|       |   +-- sarvis
+|       |   |   +-- .gitignore
+|       |   |   +-- .vscode
+|       |   |   |   +-- extensions.json
+|       |   |   |   \-- settings.json
+|       |   |   +-- app
+|       |   |   |   +-- (auth)
+|       |   |   |   |   +-- _layout.tsx
+|       |   |   |   |   +-- login.tsx
+|       |   |   |   |   +-- login-face.tsx
+|       |   |   |   |   +-- login-id.tsx
+|       |   |   |   |   +-- signup.tsx
+|       |   |   |   |   +-- signup-device.tsx
+|       |   |   |   |   +-- signup-face.tsx
+|       |   |   |   |   +-- signup-info.tsx
+|       |   |   |   |   \-- signup-voice.tsx
+|       |   |   |   +-- (tabs)
+|       |   |   |   |   +-- _layout.tsx
+|       |   |   |   |   +-- explore.tsx
+|       |   |   |   |   +-- index.tsx
+|       |   |   |   |   \-- softap-test.tsx
+|       |   |   |   +-- _layout.tsx
+|       |   |   |   +-- device-info.tsx
+|       |   |   |   +-- index.tsx
+|       |   |   |   \-- modal.tsx
+|       |   |   +-- app.json
+|       |   |   +-- assets
+|       |   |   |   \-- images
+|       |   |   |       +-- android-icon-background.png
+|       |   |   |       +-- android-icon-foreground.png
+|       |   |   |       +-- android-icon-monochrome.png
+|       |   |   |       +-- favicon.png
+|       |   |   |       +-- icon.png
+|       |   |   |       +-- partial-react-logo.png
+|       |   |   |       +-- react-logo.png
+|       |   |   |       +-- react-logo@2x.png
+|       |   |   |       +-- react-logo@3x.png
+|       |   |   |       \-- splash-icon.png
+|       |   |   +-- components
+|       |   |   |   \-- sarvis
+|       |   |   |       +-- sarvis-app-header.tsx
+|       |   |   |       +-- sarvis-button.tsx
+|       |   |   |       +-- sarvis-footer.tsx
+|       |   |   |       +-- sarvis-logo.tsx
+|       |   |   |       +-- sarvis-screen.tsx
+|       |   |   |       \-- sarvis-slider.tsx
+|       |   |   +-- constants
+|       |   |   |   \-- sarvis-theme.ts
+|       |   |   +-- eslint.config.js
+|       |   |   +-- package.json
+|       |   |   +-- package-lock.json
+|       |   |   +-- providers
+|       |   |   |   \-- auth-provider.tsx
+|       |   |   +-- README.md
+|       |   |   +-- tsconfig.json
+|       |   |   \-- utils
+|       |   |       +-- api.ts
+|       |   |       \-- softap-communication.ts
+|       |   +-- sarvis_mock.css
+|       |   +-- sarvis_mock.html
+|       |   \-- sarvis_mock.js
+|       +-- JETSON_SOFTAP_SETUP.md
+|       +-- LOGIN_FACE_TEST_GUIDE_KR.md
+|       +-- NETWORK_TROUBLESHOOTING.md
+|       +-- requirements.txt
+|       +-- server_test.py
+|       +-- SIGNUP_GUIDE.md
+|       +-- SOFTAP_TEST_GUIDE.md
+|       +-- SOFTAP_TEST_GUIDE_KR.md
+|       +-- test_face_upload.js
+|       +-- Use_case_revised.md
+|       +-- wireframe_architecture.md
+|       \-- 기능별_상세_명세.md
++-- 이주선
+|   +-- 20260112.md
+|   +-- 20260113.md
+|   +-- 20260114.md
+|   +-- 20260115.md
+|   +-- 20260116.md
+|   +-- 20260127.md
+|   +-- 20260128.md
+|   +-- 20260129.md
+|   +-- image.png
+|   +-- UIUX초안
+|   |   +-- sarvis.html
+|   |   +-- SARVIS_JOOSUN(3).html
+|   |   \-- sarvis_mock.html
+|   \-- 아래판.png
++-- 정다진
+|   +-- images
+|   |   +-- erd.png
+|   |   +-- new system architecture.png
+|   |   \-- system architecture.png
+|   +-- README_260112.md
+|   +-- README_260113.md
+|   +-- README_260114.md
+|   +-- README_260115.md
+|   \-- README_260116.md
++-- 정서영
+|   +-- image
+|   |   \-- erd.png
+|   +-- README0112.md
+|   +-- README0113.md
+|   +-- README0114.md
+|   +-- README0115.md
+|   \-- README0116.md
+\-- 제영호
+    +-- README.md
+    \-- 일지
+        +-- 260112.md
+        +-- 260113.md
+        +-- 260114.md
+        +-- 260115.md
+        \-- images
+            +-- diagram.jpg
+            \-- 시스템아키텍처.png
 ```
