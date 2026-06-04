@@ -1,49 +1,44 @@
-# 🤖 SARVIS — AIoT 기반 지능형 사용자 인식 모니터암
->
-> ⚠️ SSAFY 교육 정책에 따라 소스코드는 비공개입니다.
+# SARVIS - AIoT Smart Monitor Arm
 
-## 📌 프로젝트 개요
+SARVIS is an AIoT project that combines mobile control, backend session
+management, Jetson edge AI, and robot-arm control for a personalized smart
+monitor arm.
 
-- **SARVIS**는 얼굴/음성 기반 사용자 인식과 로봇암 제어를 결합한 **AIoT 퍼스널 모니터암** 프로젝트입니다.
-- 모바일 앱에서 사용자 인증 및 제어를 수행하고, Jetson Edge AI가 비전/음성 파이프라인을 처리하며, 백엔드가 세션/명령/계정 상태를 통합 관리합니다.
-- **SSAFY 14기 2학기 메인 프로젝트**
-- **기간:** 2026.01 ~ 2026.02 (2026.01.07 ~ 2026.02.09)
-- **팀 구성:** 6인
+Source code is not published here because the original team repository is
+covered by SSAFY project policy. This public repository is a sanitized project
+summary for portfolio and specification review.
 
-## 🎯 담당 역할
+## Project Overview
 
-- FrontEnd 개발자로 시작해, 스프린트 중반부터 PM 역할로 자발적 전환
-- FE/BE 양쪽 코드베이스 및 통신 구조 문서화에 기여
-- 팀 브랜치 통합 및 릴리즈 머지 주도
-- `git log` 분석 기준:
-  - 전체 **310개** 커밋 중 본인 **116개 (37.42%)**
-  - 본인 커밋 구성: **직접 커밋 35개 + 머지 커밋 81개**
-  - 머지 기여: `feature/BE` 5회, `feature/FE` 7회, Jetson 관련 12회
-  - 변경 로그 기준 주요 기여 경로: `SARVIS_app`, `app_UI`, `FRONTEND`, `김대연`(기획/명세)
+- Program: SSAFY 14th, second-semester main project
+- Period: 2026-01-07 to 2026-02-09
+- Team: 6 people
+- Product: face/voice-aware monitor-arm assistant
+- Core flow: mobile app authentication and control, backend session state,
+  Jetson vision/voice inference, and robot-arm command execution
 
-## 🛠️ 기술 스택
+## My Role
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Expo](https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white)
-![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
-![Django REST Framework](https://img.shields.io/badge/DRF-A30000?style=for-the-badge&logo=django&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![WebSocket](https://img.shields.io/badge/WebSocket-333333?style=for-the-badge&logo=socketdotio&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
-![Celery](https://img.shields.io/badge/Celery-37814A?style=for-the-badge&logo=celery&logoColor=white)
-![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
-![InsightFace](https://img.shields.io/badge/InsightFace-0B7285?style=for-the-badge)
-![ArcFace](https://img.shields.io/badge/ArcFace-1F6FEB?style=for-the-badge)
-![Whisper](https://img.shields.io/badge/OpenAI_Whisper-412991?style=for-the-badge&logo=openai&logoColor=white)
-![DS-CNN](https://img.shields.io/badge/DS--CNN-4B5563?style=for-the-badge)
-![ONNX Runtime](https://img.shields.io/badge/ONNX_Runtime-005CED?style=for-the-badge&logo=onnx&logoColor=white)
-![Jetson Nano](https://img.shields.io/badge/NVIDIA_Jetson-76B900?style=for-the-badge&logo=nvidia&logoColor=white)
+- Started as a frontend developer and later took on PM/integration ownership
+- Documented frontend/backend communication contracts and handoff flows
+- Led branch integration and release merges across frontend, backend, and Jetson
+  workstreams
+- Based on local Git history analysis: 116 of 310 commits were mine, including
+  35 direct commits and 81 merge commits
 
-## 🏗️ 시스템 아키텍처
+## Tech Stack
+
+| Area | Technologies |
+| --- | --- |
+| Mobile | React Native, Expo, TypeScript |
+| Backend | Django, Django REST Framework, Channels, Celery |
+| Realtime | WebSocket, Redis |
+| Data | MySQL, JWT-based auth/session state |
+| Edge AI | Jetson Nano, Python, FastAPI, OpenCV, InsightFace/ArcFace |
+| Voice | DS-CNN wake word, Whisper/STT pipeline, ONNX Runtime |
+| Hardware | Robot-arm control, BLE/Wi-Fi onboarding |
+
+## System Architecture
 
 ```mermaid
 flowchart LR
@@ -93,7 +88,7 @@ flowchart LR
   E3 --> I1
 ```
 
-## ⭐ 주요 기능
+## Main Features
 
 | 기능 | 설명 |
 |------|------|
@@ -106,7 +101,7 @@ flowchart LR
 | YouTube 핸즈프리 제어 | 앱 접근성 모듈 연동으로 재생/일시정지/탐색 제어 |
 | 기기 연결 온보딩 | `SARVIS_WIFI` 및 BLE 기반 연결 절차 안내/검증 |
 
-## 📁 프로젝트 구조
+## Private Source Layout
 
 ```text
 S14P11A104
@@ -128,13 +123,26 @@ S14P11A104
 └── exec                       # 포팅/운영 문서
 ```
 
-## 💡 핵심 경험 & 성장
+The tree above documents the original private repository structure. It is
+included for architecture review only.
 
-- **PM 전환 스토리**  
-  스프린트 진행 중 FE/BE/HW 간 통신 규약 불일치로 충돌이 반복되었고, 이를 해결하기 위해 PM 역할로 전환해 상세 명세/API 기준을 통합했습니다.
+## Key Engineering Experience
 
-- **기술적 챌린지 해결**  
-  실시간 음성 호출(WebSocket), 생체 인증 파이프라인(Jetson↔Backend), 앱 백그라운드 동작(Foreground Service) 등 다중 계층 연동 이슈를 구조화하여 해결했습니다.
+- PM transition: repeated frontend/backend/hardware contract mismatch made
+  integration slower than feature work, so I moved into an integration role and
+  made API/session/control flow decisions explicit.
 
-## 📸 스크린샷
-<!-- 추후 추가 예정 -->
+- Multi-layer debugging: the most important issues crossed app state, backend
+  session state, Jetson inference timing, and hardware command behavior.
+
+- Release hygiene: branch integration and release merges were treated as a
+  product responsibility, not a last-minute Git task.
+
+## Public Boundary
+
+This repository intentionally excludes:
+
+- Source code covered by SSAFY/team repository policy
+- Raw SQL dumps, app archives, device credentials, and private deployment notes
+- Biometric, voice, or user-identifying test data
+- Live secrets, tokens, and service credentials
