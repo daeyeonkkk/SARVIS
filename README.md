@@ -4,6 +4,18 @@ SARVIS는 얼굴 인식, 음성 인식, 모바일 제어, Jetson edge AI, robot 
 
 SSAFY 정책과 팀 소스 보호를 위해 public repo에는 실행 가능한 내부 코드를 공개하지 않습니다. 대신 원본 Git에서 추적하던 폴더명과 파일명을 그대로 복제한 0바이트 skeleton을 포함해, 시스템 규모와 구성은 확인할 수 있게 했습니다.
 
+## 커리어 근거로 읽는 법
+
+| 항목 | 내용 |
+| --- | --- |
+| 프로젝트 유형 | SSAFY 공통 프로젝트, 6인 AIoT 팀 프로젝트 |
+| 내 역할 | frontend 구현, backend API 조율, sprint 2 이후 PM/팀장 역할 |
+| 주력 기술 | React Native/Expo, TypeScript, Kotlin, Django/DRF, FastAPI, Redis, InsightFace, ONNX, OpenCV, Whisper |
+| 보여주고 싶은 역량 | FE/BE/Jetson/hardware가 나뉜 팀에서 API 계약과 통합 기준을 맞추는 역량 |
+| 결과 | SSAFY 공통과정 프로젝트 우수상 |
+
+제가 이 프로젝트에서 강조하고 싶은 부분은 특정 화면 하나보다, **서로 다른 파트가 다른 가정을 가진 상태에서 API 계약과 커뮤니케이션 기준을 맞춰 통합을 안정화한 경험**입니다. public repo는 skeleton-only지만, 실제 원본 파일명 구조를 통해 mobile, backend, Jetson, hardware workstream의 범위를 확인할 수 있습니다.
+
 ## 프로젝트 개요
 
 | 항목 | 내용 |
